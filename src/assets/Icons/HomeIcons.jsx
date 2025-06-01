@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
-export const  SearchIcon = (props) => 
-(
+export const SearchIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -21,14 +20,9 @@ export const  SearchIcon = (props) =>
       <path d="M17.029 16.53 19.5 19" />
     </g>
   </svg>
-)
-  
+);
 
-
-
-
-
-  export const CartIcon = (props) => (
+export const CartIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -39,9 +33,9 @@ export const  SearchIcon = (props) =>
       <path d="M4 .75H1a1 1 0 0 0-1 1v.5a1 1 0 0 0 1 1h2.012l2.724 11.481A4.25 4.25 0 0 0 9.765 18V18h7.822a4 4 0 0 0 3.943-3.325l1.256-7.338A2 2 0 0 0 20.814 5H5.997l-.78-3.289A1.25 1.25 0 0 0 4 .75ZM10 21a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM21 21a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
     </g>
   </svg>
-  )
+);
 
-  export const HeartIcon = (props) => (
+export const HeartIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -54,4 +48,36 @@ export const  SearchIcon = (props) =>
       d="m4.426 12.947 5.736 6.175a2.508 2.508 0 0 0 3.676 0l5.736-6.175c1.901-2.047 1.901-5.365 0-7.412-1.901-2.047-4.984-2.047-6.886 0a.94.94 0 0 1-1.377 0c-1.9-2.047-4.984-2.047-6.885 0-1.901 2.047-1.901 5.365 0 7.412Z"
     />
   </svg>
-  )
+);
+export const RightIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon glyph"
+    viewBox="0 0 24 24"
+    width="2rem"
+    {...props}
+  >
+    <path
+      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm2.71 10.71-3 3a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.42l2.3-2.29-2.3-2.29a1 1 0 0 1 1.42-1.42l3 3a1 1 0 0 1 0 1.42Z"
+      style={{
+        fill: "currentColor",
+      }}
+    />
+  </svg>
+);
+export const LeftIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon glyph"
+    viewBox="0 0 24 24"
+    width="2rem"
+    {...props}
+  >
+    <path
+      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1.71 12.29a1 1 0 0 1 0 1.42 1 1 0 0 1-1.42 0l-3-3a1 1 0 0 1 0-1.42l3-3a1 1 0 0 1 1.42 1.42L11.41 12Z"
+      style={{
+        fill: "currentColor",
+      }}
+    />
+  </svg>
+);
