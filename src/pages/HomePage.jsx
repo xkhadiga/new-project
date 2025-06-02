@@ -17,7 +17,7 @@ export default function HomePage() {
         <p className="text-gray-600 mb-6">
           Trendy. Affordable. Delivered to you.
         </p>
-        <button className="bg-black text-white px-6 py-2 rounded-xl hover:bg-gray-900 cursor-pointer transition">
+        <button className="bg-black text-white px-6 py-2 rounded-xl hover:bg-[#333333] cursor-pointer transition">
           Shop Now
         </button>
       </section>
