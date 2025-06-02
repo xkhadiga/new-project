@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Sections/Header";
 import Categories from "../Sections/Categories";
 import ProductsGrid from "../Sections/ProductsGrid";
+import Footer from "../Sections/Footer";
 
 export default function HomePage() {
   return (
@@ -10,11 +11,11 @@ export default function HomePage() {
     <Header />
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center p-10 mb-10 bg-[#dedbd2]">
+      <section className="flex flex-col items-center justify-center text-center p-10 mb-10 bg-[#dedbd2] text-[#413b39]">
         <h2 className="text-3xl font-semibold mb-4">
           Discover Your Next Favorite Product
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className=" mb-6">
           Trendy. Affordable. Delivered to you.
         </p>
         <button className="bg-black text-white px-6 py-2 rounded-xl hover:bg-[#333333] cursor-pointer transition">
@@ -28,11 +29,15 @@ export default function HomePage() {
       <div className="border-b-1 border-[#dedbd2] my-20"></div>
       <Categories />
 
+            <div className="border-b-1 border-[#dedbd2] my-20"></div>
+
       {/* Footer */}
-      <footer className="text-center p-6 mt-20 border-t border-[#dedbd2] text-sm text-gray-500">
+
+      {/* <footer className="text-center p-6 mt-20 border-t border-[#dedbd2] text-sm text-gray-500">
         &copy; 2025 ShopMate. All rights reserved.
-      </footer>
+        </footer> */}
       </div>
+        <Footer />
     </div>
   );
 }
