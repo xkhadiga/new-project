@@ -37,13 +37,13 @@ export default function ProductsGrid() {
             <h3 className="font-medium text-lg">{product.title}</h3>
 
             <div className="flex gap-2 text-sm mt-1">
-              <p className="font-semibold">${product.price}</p>
+              <p className="font-semibold">EGP {product.price}</p>
               {product.discountPercentage && (
                 <s className="text-gray-400">
-                  $
-                  {Math.round(
+                  {`EGP 
+                   ${Math.round(
                     product.price / (1 - product.discountPercentage / 100)
-                  )}
+                  )}`}
                 </s>
               )}
             </div>
