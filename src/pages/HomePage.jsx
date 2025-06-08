@@ -10,8 +10,7 @@ import Recommended from "../Sections/Recommended";
 export default function HomePage() {
   return (
     <div className="min-h-screen  bg-white text-gray-800">
-      {/* Header */}
-      <Header />
+
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center p-10 mb-10 bg-[#dedbd2] text-[#413b39]">
@@ -33,7 +32,7 @@ export default function HomePage() {
         <ProductsGrid />
 
         {/* Ad Banner */}
-        <div className=" mt-20  mb-40 px-4 md:px-6 py-1 ">
+        <div className=" my-20 px-4 md:px-6 py-1 ">
           <AdBanner
             title="🍉 Fresh & Juicy Deals!"
             subtitle="Cool off with our fruity selection—watermelon, citrus & more. Up to 40% off!"

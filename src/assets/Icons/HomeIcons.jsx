@@ -49,6 +49,20 @@ export const HeartIcon = (props) => (
     />
   </svg>
 );
+export const HeartIconFilled = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path
+      stroke="currentColor"
+      strokeWidth={2}
+      d="m4.426 12.947 5.736 6.175a2.508 2.508 0 0 0 3.676 0l5.736-6.175c1.901-2.047 1.901-5.365 0-7.412-1.901-2.047-4.984-2.047-6.886 0a.94.94 0 0 1-1.377 0c-1.9-2.047-4.984-2.047-6.885 0-1.901 2.047-1.901 5.365 0 7.412Z"
+    />
+  </svg>
+);
 export const RightIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

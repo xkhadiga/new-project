@@ -1,9 +1,108 @@
-import React from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, incrementQuantity, decrementQuantity, clearCart } from '../store/cartSlice';
 
 function Cart() {
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const calculateItemTotalPrice = (item) => {
+    return item.price * item.quantity;
+  };
+
+  const calculateOverallTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + calculateItemTotalPrice(item), 0);
+  };
+
+  const handleRemoveItem = (item) => {
+    dispatch(removeFromCart(item));
+  };
+
+  const handleIncrement = (item) => {
+    dispatch(incrementQuantity(item));
+  };
+
+  const handleDecrement = (item) => {
+    dispatch(decrementQuantity(item));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  const handleCheckout = () => {
+    alert('Proceeding to checkout!');
+    // In a real application, you would navigate to a checkout page or process the order
+  };
+
   return (
-    <div>Cart</div>
-  )
+    <div className="p-6">
+      <h2 className="text-xl mb-4 text-[#756d5d]">Your Shopping Cart</h2>
+      {cartItems.length === 0 ? (
+        <p className="text-gray-600">Your cart is empty.</p>
+      ) : (
+        <div className="flex flex-col gap-4">
+          {cartItems.map((item) => (
+            <div
+              key={item.id}
+              className="border border-[#dedbd2] rounded-2xl p-4 shadow shadow-[#dedbd2] flex items-center gap-4"
+            >
+              <div className="w-24 h-24 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="flex-grow">
+                <h3 className="font-medium text-lg">{item.title}</h3>
+                <p className="text-gray-600">Price: EGP {item.price}</p>
+                <div className="flex items-center gap-2 mt-2">
+                  <button
+                    onClick={() => handleDecrement(item)}
+                    className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md hover:bg-gray-300"
+                  >
+                    -
+                  </button>
+                  <span>Quantity: {item.quantity}</span>
+                  <button
+                    onClick={() => handleIncrement(item)}
+                    className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md hover:bg-gray-300"
+                  >
+                    +
+                  </button>
+                  <p className="ml-4 font-semibold">Total: EGP {calculateItemTotalPrice(item).toFixed(2)}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => handleRemoveItem(item)}
+                className="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <div className="mt-6 p-4 border-t border-[#dedbd2] flex justify-between items-center">
+            <h3 className="text-xl font-bold">Overall Total: EGP {calculateOverallTotalPrice().toFixed(2)}</h3>
+            <div className="flex gap-2">
+              <button
+                onClick={handleClearCart}
+                className="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700"
+              >
+                Clear Cart
+              </button>
+              <button
+                onClick={handleCheckout}
+                className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Cart
+export default Cart;

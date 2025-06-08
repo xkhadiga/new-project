@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FashionIcon,
   SmartphoneIcon,
@@ -31,6 +32,7 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 6;
+  const navigate = useNavigate();
 
   const iconMap = {
     beauty: <BeautyIcon />,
@@ -110,6 +112,7 @@ const Categories = () => {
             <div
               key={index}
               className="bg-white hover:bg-[#dedbd2] aspect-square  transition-all duration-300 cursor-pointer rounded-sm p-2 flex flex-col items-center justify-center shadow-sm border-[#dedbd2] border-1 "
+              onClick={() => navigate(`/bycategory/${category.name}`)}
             >
               <div className="w-[4rem] h-[4rem] mb-2 text-[#756d5d]">
                 {category.icon}
