@@ -32,14 +32,14 @@ function Cart() {
 
   const handleCheckout = () => {
     alert('Proceeding to checkout!');
-    // In a real application, you would navigate to a checkout page or process the order
+
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-xl mb-4 text-[#756d5d]">Your Shopping Cart</h2>
+      <h2 className="text-xl mb-4 text-[#756d5d] text-center">Your Shopping Cart</h2>
       {cartItems.length === 0 ? (
-        <p className="text-gray-600">Your cart is empty.</p>
+        <p className="text-gray-600 text-center">Your cart is empty.</p>
       ) : (
         <div className="flex flex-col gap-4">
           {cartItems.map((item) => (
@@ -57,26 +57,26 @@ function Cart() {
               <div className="flex-grow">
                 <h3 className="font-medium text-lg">{item.title}</h3>
                 <p className="text-gray-600">Price: EGP {item.price}</p>
-                <div className="flex items-center gap-2 mt-2">
-                  <button
-                    onClick={() => handleDecrement(item)}
-                    className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md hover:bg-gray-300"
-                  >
-                    -
-                  </button>
-                  <span>Quantity: {item.quantity}</span>
-                  <button
-                    onClick={() => handleIncrement(item)}
-                    className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md hover:bg-gray-300"
-                  >
-                    +
-                  </button>
+                <div className="flex items-center gap-4 mt-2">
+          <button
+            onClick={() => handleDecrement(item)}
+            className="bg-black text-white px-4 font-bold py-1 rounded-md hover:bg-[#333333] cursor-pointer "
+          >
+            -
+          </button>
+                  <span className='font-semibold px-4'>{item.quantity}</span>
+          <button
+            onClick={() => handleIncrement(item)}
+            className="bg-black text-white px-4 font-bold py-1 rounded-md hover:bg-[#333333] cursor-pointer "
+          >
+            +
+          </button>
                   <p className="ml-4 font-semibold">Total: EGP {calculateItemTotalPrice(item).toFixed(2)}</p>
                 </div>
               </div>
               <button
                 onClick={() => handleRemoveItem(item)}
-                className="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600"
+                className="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-700 cursor-pointer"
               >
                 Remove
               </button>
@@ -87,13 +87,13 @@ function Cart() {
             <div className="flex gap-2">
               <button
                 onClick={handleClearCart}
-                className="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700"
+                className="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 cursor-pointer"
               >
                 Clear Cart
               </button>
               <button
                 onClick={handleCheckout}
-                className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700"
+                className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 cursor-pointer"
               >
                 Checkout
               </button>

@@ -65,11 +65,11 @@ const Categories = () => {
     const fetchCategories = async () => {
       const response = await fetch("https://dummyjson.com/products/categories");
       const data = await response.json();
-      console.log("Fetched Categories:", data); // Log the fetched categories
+      console.log("Fetched Categories:", data); 
       setCategories(
         data.map((category) => ({
           name: category.name,
-          icon: iconMap[category.slug] || null, // Use null if no icon is found
+          icon: iconMap[category.slug] || null, 
         }))
       );
     };

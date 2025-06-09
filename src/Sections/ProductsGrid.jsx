@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Components/Card"; // Import the new Card component
+import Card from "../Components/Card"; 
 
 export default function ProductsGrid() {
   const [products, setProducts] = useState([]);

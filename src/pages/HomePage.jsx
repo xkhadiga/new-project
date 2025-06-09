@@ -7,11 +7,10 @@ import AdBanner from "../Components/AdBanner";
 import TrustBadges from "../Components/TrustBadges";
 import Testimonials from "../Sections/Testimonials";
 import Recommended from "../Sections/Recommended";
+import ImageSlider from "../Components/ImageSlider";
 export default function HomePage() {
   return (
     <div className="min-h-screen  bg-white text-gray-800">
-
-
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center p-10 mb-10 bg-[#dedbd2] text-[#413b39]">
         <h2 className="text-3xl font-semibold mb-4">
@@ -24,13 +23,19 @@ export default function HomePage() {
       </section>
       <div className="px-6">
         <Categories />
+
+        <div className=" border-[#dedbd2] my-20"></div>
+        {/* Image Slider */}
+        <ImageSlider />
+        <div className=" border-[#dedbd2] my-20"></div>
+
+        {/* Product Grid */}
+        <ProductsGrid />
+
         <div className="border-b-1 border-[#dedbd2] my-20"></div>
         {/* Trust Badges */}
         <TrustBadges />
         <div className="border-b-1 border-[#dedbd2] my-20"></div>
-        {/* Product Grid */}
-        <ProductsGrid />
-
         {/* Ad Banner */}
         <div className=" my-20 px-4 md:px-6 py-1 ">
           <AdBanner
@@ -42,13 +47,12 @@ export default function HomePage() {
             bgColor="bg-[#cde59b]"
           />
         </div>
-                {/* Recommended */}
+        {/* Recommended */}
         <Recommended />
-                <div className="border-b-1 border-[#dedbd2] my-20"></div>
+        <div className="border-b-1 border-[#dedbd2] my-20"></div>
         {/* Testimonials */}
         <Testimonials />
-                <div className="my-30"></div>
-
+        <div className="my-30"></div>
       </div>
       {/* Footer */}
       <Footer />

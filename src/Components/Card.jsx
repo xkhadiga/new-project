@@ -67,7 +67,7 @@ export default function Card({ product }) {
         />
       </div>
 
-      <h3 className="font-medium text-lg">{product.title}</h3>
+      <h3 className="font-medium text-lg line-clamp-2">{product.title}</h3>
 
       <div className="flex gap-2 text-sm mt-1">
         <p className="font-semibold">EGP {product.price}</p>
