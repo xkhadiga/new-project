@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import ProductPage from './pages/ProductPage';
 import Register from './pages/Register';
 import Search from './pages/Search';
+import AllProducts from './pages/AllProducts';
 
 import './App.css';
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/all-products" element={<AllProducts />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </>

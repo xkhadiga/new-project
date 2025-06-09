@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, incrementQuantity, decrementQuantity, clearCart } from '../store/cartSlice';
+import { Link } from 'react-router-dom';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -91,12 +92,12 @@ function Cart() {
               >
                 Clear Cart
               </button>
-              <button
+              <Link to="/checkout"
                 onClick={handleCheckout}
                 className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 cursor-pointer"
               >
                 Checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>

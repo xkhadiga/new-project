@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "../Components/Card"; 
 
 export default function ProductsGrid() {
@@ -8,7 +9,7 @@ export default function ProductsGrid() {
     const fetchProducts = async () => {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
-      setProducts(data.products.slice(8, 16));
+      setProducts(data.products.slice(0,8));
     };
     fetchProducts();
   }, []);
@@ -22,6 +23,15 @@ export default function ProductsGrid() {
           <Card key={product.id} product={product} />
         ))}
       </section>
+
+      <div className="text-center mt-8">
+        <Link
+          to="/all-products"
+          className="bg-black hover:bg-[#333333] text-white px-6 py-3 rounded-md  transition duration-300"
+        >
+          Browse All Products
+        </Link>
+      </div>
     </div>
   );
 }

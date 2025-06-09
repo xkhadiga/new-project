@@ -21,14 +21,16 @@ function ImageSlider() {
   }, [images.length]); 
 
   return (
-    <div className="relative flex mx-auto w-[95%] h-[65vh] rounded-lg overflow-hidden">
-      <img
-        src={images[currentIndex]}
-        effect="blur"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${loading ? 'image-placeholder opacity-50' : 'opacity-100'}`}
-        alt="Shopping Slide"
-        onLoad={() => setLoading(false)}
-      />
+    <div className="relative flex m-6  h-[65vh] rounded-lg overflow-hidden cursor-pointer">
+      <a href="https://x.com/itskhadija_xo" target="_blank" >
+        <img
+          src={images[currentIndex]}
+          effect="blur"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${loading ? 'image-placeholder opacity-50' : 'opacity-100'}`}
+          alt="Shopping Slide"
+          onLoad={() => setLoading(false)}
+        />
+      </a>
       <div className='absolute inset-0 flex justify-center items-center'>
         {/* <h1 className=' text-5xl sm:text-6xl font-bold text-white'>
           Shop Smarter, Live Better!

@@ -8,6 +8,7 @@ import TrustBadges from "../Components/TrustBadges";
 import Testimonials from "../Sections/Testimonials";
 import Recommended from "../Sections/Recommended";
 import ImageSlider from "../Components/ImageSlider";
+import { Link } from "react-router-dom";
 export default function HomePage() {
   return (
     <div className="min-h-screen  bg-white text-gray-800">
@@ -17,9 +18,9 @@ export default function HomePage() {
           Discover Your Next Favorite Product
         </h2>
         <p className=" mb-6">Trendy. Affordable. Delivered to you.</p>
-        <button className="bg-black text-white px-6 py-2 rounded-xl hover:bg-[#333333] cursor-pointer transition">
+        <Link to="/all-products" className="bg-black text-white px-6 py-2 rounded-xl hover:bg-[#333333] cursor-pointer transition">
           Shop Now
-        </button>
+        </Link>
       </section>
       <div className="px-6">
         <Categories />

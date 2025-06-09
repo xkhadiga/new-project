@@ -15,6 +15,10 @@ export default function Card({ product }) {
 
   const cartItem = cartItems.find(item => item.id === product.id);
 
+  const title = product.title.trim();
+  const wordCount = title.split(/\s+/).length;
+  const titleClassName = wordCount > 4 ? "text-md font-medium" : "text-lg font-medium";
+
   const isProductFavorite = (productId) => {
     return favorites.some((item) => item.id === productId);
   };
@@ -42,11 +46,11 @@ export default function Card({ product }) {
   return (
     <div
       key={product.id}
-      className="border border-[#dedbd2] relative rounded-2xl p-4 shadow hover:shadow-lg shadow-[#dedbd2] transition-all duration-200 ease-in-out transform  cursor-pointer"
+      className="border bg-white border-[#dedbd2] relative rounded-2xl p-4 shadow hover:shadow-lg shadow-[#dedbd2] transition-all duration-200 ease-in-out transform  cursor-pointer flex flex-col justify-center" 
     >
       <button
         onClick={() => handleToggleFavorite(product)}
-        className="absolute top-4 right-4 w-6 h-6 text-[#756d5d] hover:text-[#e30000] cursor-pointer transition-all duration-200 ease-in-out transform hover:scale-107 z-10"
+        className="absolute top-4 right-4 w-5 h-5 text-[#756d5d] hover:text-[#e30000] cursor-pointer transition-all duration-200 ease-in-out transform hover:scale-107 z-10"
       >
         {isProductFavorite(product.id) ? (
           <span className="text-[#e30000]">
@@ -67,9 +71,10 @@ export default function Card({ product }) {
         />
       </div>
 
-      <h3 className="font-medium text-lg line-clamp-2">{product.title}</h3>
+      <h3 className={`line-clamp-2 ${titleClassName}`}>{product.title}</h3>
 
       <div className="flex gap-2 text-sm mt-1">
+
         <p className="font-semibold">EGP {product.price}</p>
         {product.discountPercentage && (
           <s className="text-gray-400">
