@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../store/favoritesSlice";
 import { addToCart, incrementQuantity, decrementQuantity } from "../store/cartSlice";
 import {
@@ -10,6 +11,7 @@ import {
 
 export default function Card({ product }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const favorites = useSelector((state) => state.favorites.items);
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -63,7 +65,10 @@ export default function Card({ product }) {
         )}
       </button>
 
-      <div className="w-full h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+      <div
+        className="w-full h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center overflow-hidden"
+        onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
+      >
         <img
           src={product.thumbnail}
           alt={product.title}
@@ -71,7 +76,12 @@ export default function Card({ product }) {
         />
       </div>
 
-      <h3 className={`line-clamp-2 ${titleClassName}`}>{product.title}</h3>
+      <h3
+        className={`line-clamp-2 ${titleClassName}`}
+        onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
+      >
+        {product.title}
+      </h3>
 
       <div className="flex gap-2 text-sm mt-1">
 
