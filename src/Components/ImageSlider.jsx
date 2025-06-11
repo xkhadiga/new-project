@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 function ImageSlider() {
 
   const images = [
-    "https://images.pexels.com/photos/20232007/pexels-photo-20232007/free-photo-of-sign-in-a-clothes-shop.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.pexels.com/photos/5264900/pexels-photo-5264900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.unsplash.com/photo-1483181994834-aba9fd1e251a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,9 +32,9 @@ function ImageSlider() {
         />
       </a>
       <div className='absolute inset-0 flex justify-center items-center'>
-        {/* <h1 className=' text-5xl sm:text-6xl font-bold text-white'>
+        <h1 className=' text-5xl sm:text-6xl font-bold text-white'>
           Shop Smarter, Live Better!
-        </h1> */}
+        </h1>
       </div>
     </div>
   );

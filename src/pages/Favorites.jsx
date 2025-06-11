@@ -5,7 +5,7 @@ function Favorites() {
   const favorites = useSelector((state) => state.favorites.items);
 
   return (
-    <div className="p-6 flex flex-col items-center">
+    <div className="p-6 mx-auto">
       <h2 className="text-xl mb-4 text-[#756d5d]">Your Favorite Products</h2>
       {favorites.length === 0 ? (
         <p className="text-gray-600 text-center">You haven't added any favorites yet.</p>

@@ -1,17 +1,43 @@
-import { useState } from "react";
-import { SearchIcon, CartIcon, HeartIcon } from "../assets/Icons/HomeIcons";
-import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { SearchIcon, CartIcon, HeartIcon, UserIcon } from "../assets/Icons/HomeIcons";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      console.log("Searching for:", searchQuery);
+      navigate(`/search?query=${searchQuery}`);
     }
   };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleDropdownClick = (path) => {
+    navigate(path);
+    setIsDropdownOpen(false); // Close dropdown after navigation
+  };
+
   return (
-    <header className="flex items-center justify-between p-6 shadow-md">
+    <header className="flex items-center justify-between p-6 shadow-sm shadow-[#ebe9e4]">
       <Link to="/" className="text-[#333333]  flex gap-1 items-center">
         <span className="w-5 h-5">
           <svg
@@ -42,11 +68,14 @@ export default function Header() {
             onKeyDown={handleSearch}
             className="pl-10 relative pr-4 py-[.4rem] border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#dedbd2] overflow-x-hidden"
           />
-          <span className="absolute top-2 right-2 w-5 h-5 cursor-pointer text-[#333333]">
+          <span
+            className="absolute top-2 right-2 w-5 h-5 cursor-pointer text-[#333333]"
+            onClick={() => navigate(`/search?query=${searchQuery}`)}
+          >
             <SearchIcon />
           </span>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center"> {/* Added items-center for alignment */}
           <Link to="/cart" className="w-5 h-5 cursor-pointer text-[#333333]">
             <CartIcon />{" "}
           </Link>
@@ -56,6 +85,36 @@ export default function Header() {
           >
             <HeartIcon />{" "}
           </Link>
+          <div className="relative" ref={dropdownRef}>
+            <span
+              className="w-5 h-5 cursor-pointer text-[#333333]  flex items-center justify-center" 
+              onClick={toggleDropdown}
+            >
+              <UserIcon />
+            </span>
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg  z-10">
+                <button
+                  onClick={() => handleDropdownClick("/account")}
+                  className="block px-4 py-2 text-sm text-[#333333] hover:bg-[#ebe9e4] cursor-pointer w-full text-left"
+                >
+                  Account
+                </button>
+                <button
+                  onClick={() => handleDropdownClick("/login")}
+                  className="block px-4 py-2 text-sm text-[#333333] hover:bg-[#ebe9e4] cursor-pointer w-full text-left"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => handleDropdownClick("/register")}
+                  className="block px-4 py-2 text-sm text-[#333333] hover:bg-[#ebe9e4] cursor-pointer w-full text-left"
+                >
+                  Register
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
