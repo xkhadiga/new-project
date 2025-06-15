@@ -4,6 +4,7 @@ import {
   ShieldIcon,
   TruckIcon,
 } from "../assets/Icons/FooterIcons";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 export default function TrustBadges() {
   const badges = [
     {
@@ -26,7 +27,8 @@ export default function TrustBadges() {
     <section className=" py-6 px-4 rounded-2xl ">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3  gap-6 text-center">
         {badges.map((badge, index) => (
-          <div
+          <AnimationOnScroll 
+            animateIn="animate__bounceInLeft"
             key={index}
             className="flex flex-col items-center gap-2 bg-white p-4 rounded-xl shadow hover:shadow-md transition duration-300 border border-[#dedbd2]"
           >
@@ -37,7 +39,7 @@ export default function TrustBadges() {
               {badge.title}
             </h3>
             <p className="text-sm text-[#756d5d]">{badge.description}</p>
-          </div>
+          </AnimationOnScroll>
         ))}
       </div>
     </section>

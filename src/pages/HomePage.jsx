@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Sections/Header";
 import Categories from "../Sections/Categories";
 import ProductsGrid from "../Sections/ProductsGrid";
 import Footer from "../Sections/Footer";
@@ -8,6 +7,7 @@ import TrustBadges from "../Components/TrustBadges";
 import Testimonials from "../Sections/Testimonials";
 import Recommended from "../Sections/Recommended";
 import ImageSlider from "../Components/ImageSlider";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Link } from "react-router-dom";
 export default function HomePage() {
   return (
@@ -17,9 +17,16 @@ export default function HomePage() {
         <h2 className="text-2xl md:text-3xl font-semibold mb-3 md:mb-4">
           Discover Your Next Favorite Product
         </h2>
-        <p className="text-sm md:text-base mb-4 md:mb-6">Trendy. Affordable. Delivered to you.</p>
-        <Link to="/all-products" className="bg-black text-white px-5 py-1.5 md:px-6 md:py-2 rounded-xl hover:bg-[#333333] cursor-pointer transition text-sm md:text-base">
-          Shop Now
+        <p className="text-sm md:text-base mb-4 md:mb-6">
+          Trendy. Affordable. Delivered to you.
+        </p>
+
+        <Link
+          to="/all-products"
+          className="bg-black text-white px-5 py-1.5 md:px-6 md:py-2 rounded-xl hover:bg-[#333333] cursor-pointer transition text-sm md:text-base animate-in fade-in zoom-in duration-300"
+        >
+
+            Shop Now
         </Link>
       </section>
       <div className="px-2 sm:px-4 md:px-6">

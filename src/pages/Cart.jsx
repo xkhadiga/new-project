@@ -31,10 +31,7 @@ function Cart() {
     dispatch(clearCart());
   };
 
-  const handleCheckout = () => {
-    alert('Proceeding to checkout!');
 
-  };
 
   return (
     <div className="p-4 md:p-6">
@@ -93,7 +90,6 @@ function Cart() {
                 Clear Cart
               </button>
               <Link to="/checkout"
-                onClick={handleCheckout}
                 className="bg-green-600 text-white py-1.5 px-3 md:py-2 md:px-4 rounded-md hover:bg-green-700 cursor-pointer text-sm md:text-base"
               >
                 Checkout

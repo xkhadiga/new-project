@@ -1,5 +1,6 @@
 import React from "react";
 import { CartPlus } from "../assets/Icons/HomeIcons";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 export default function Recommended() {
   const recommended = [
@@ -34,7 +35,8 @@ export default function Recommended() {
 
       <div className="grid gap-3 md:gap-6 grid-cols-2 md:grid-cols-4 px-2 md:px-4">
         {recommended.map((item) => (
-          <div
+          <AnimationOnScroll
+            animateIn="animate__fadeIn"
             key={item.id}
             className="border border-[#dedbd2] relative rounded-2xl p-2 md:p-4 shadow hover:shadow-lg shadow-[#dedbd2] transition cursor-pointer"
           >
@@ -49,7 +51,7 @@ export default function Recommended() {
               </h3>
               <p className="text-xs md:text-sm text-gray-500 text-center">{item.price}</p>
             </div>
-          </div>
+          </AnimationOnScroll>
         ))}
       </div>
     </section>

@@ -109,7 +109,7 @@ const Categories = () => {
           .map((category, index) => (
             <div
               key={index}
-              className="bg-white hover:bg-[#dedbd2] aspect-square transition-all duration-300 cursor-pointer rounded-sm p-2 flex flex-col items-center justify-center shadow-sm border-[#dedbd2] border-1"
+              className="bg-white hover:bg-[#dedbd2] aspect-square transition-all duration-300 animate-in fade-in zoom-in   cursor-pointer rounded-sm p-2 flex flex-col items-center justify-center shadow-sm border-[#dedbd2] border-1"
               onClick={() => navigate(`/bycategory/${category.name}`)}
             >
               <div className="w-12 h-12 md:w-[4rem] md:h-[4rem] mb-1 md:mb-2 text-[#756d5d]">

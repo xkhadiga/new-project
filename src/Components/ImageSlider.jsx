@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 function ImageSlider() {
 
   const images = [
@@ -21,7 +21,7 @@ function ImageSlider() {
   }, [images.length]); 
 
   return (
-    <div className="relative flex sm:m-6 h-[55vh] sm:h-[65vh] rounded-lg overflow-hidden">
+    <div className="relative flex sm:m-6 h-[55vh] sm:h-[65vh] rounded-lg overflow-hidden ">
       <a href="https://www.linkedin.com/in/itskhadijaa/" target="_blank" className="absolute inset-0 w-full h-full cursor-pointer z-10">
         <img
           src={images[currentIndex]}
@@ -31,9 +31,11 @@ function ImageSlider() {
           onLoad={() => setLoading(false)}
         />
         <div className='absolute inset-0 flex justify-center items-center'>
+          <AnimationOnScroll animateIn="animate__fadeInLeft" >
           <h1 className='text-4xl sm:text-6xl text-center font-bold text-white'>
             Shop Smarter, Live Better!
           </h1>
+          </AnimationOnScroll>
         </div>
       </a>
     </div>

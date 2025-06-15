@@ -12,7 +12,9 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/vite": "^4.1.8",
+    "animate.css": "^4.1.1",
     "react": "^19.1.0",
+    "react-animation-on-scroll": "^5.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.2",
@@ -27,6 +29,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1.3.4",
     "vite": "^6.3.5"
   }
 }

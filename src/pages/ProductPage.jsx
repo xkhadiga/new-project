@@ -87,14 +87,14 @@ function ProductPage() {
               <div className="flex items-center justify-between w-full sm:w-1/2 bg-gray-100 rounded-md p-1.5 md:p-2">
                 <button
                   onClick={() => handleDecrement(product)}
-                  className="bg-black text-white px-3 md:px-4 py-1.5 md:py-2 rounded-md hover:bg-[#333333] transition-colors duration-200 text-sm"
+                  className="bg-black text-white px-3 md:px-4 py-1.5 md:py-2 rounded-md hover:bg-[#333333] transition-colors duration-200 text-sm cursor-pointer"
                 >
                   -
                 </button>
                 <span className="font-semibold text-base md:text-lg">{cartItem.quantity}</span>
                 <button
                   onClick={() => handleIncrement(product)}
-                  className="bg-black text-white px-3 md:px-4 py-1.5 md:py-2 rounded-md hover:bg-[#333333] transition-colors duration-200 text-sm"
+                  className="bg-black text-white px-3 md:px-4 py-1.5 md:py-2 rounded-md hover:bg-[#333333] transition-colors duration-200 text-sm cursor-pointer"
                 >
                   +
                 </button>
@@ -102,7 +102,7 @@ function ProductPage() {
             ) : (
               <button
                 onClick={() => handleAddToCart(product)}
-                className="w-full sm:w-1/2 bg-black text-white py-2.5 md:py-3 rounded-md hover:bg-[#333333] transition-colors duration-200 text-base md:text-lg font-medium"
+                className="w-full sm:w-1/2 bg-black text-white py-2.5 md:py-3 rounded-md hover:bg-[#333333] transition-colors duration-200 text-base md:text-lg font-medium cursor-pointer"
               >
                 Add to Cart
               </button>
@@ -110,7 +110,7 @@ function ProductPage() {
 
             <button
               onClick={() => handleToggleFavorite(product)}
-              className={`w-full sm:w-1/2 py-2.5 md:py-3 rounded-md border-2 text-sm md:text-base ${
+              className={`w-full sm:w-1/2 py-2.5 md:py-3 rounded-md border-2 text-sm md:text-base cursor-pointer ${
                 isProductFavorite(product.id)
                   ? 'border-[#e30000] text-[#e30000]'
                   : 'border-gray-300 text-gray-600 hover:border-gray-400'

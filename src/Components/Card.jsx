@@ -8,6 +8,7 @@ import {
   HeartIconFilled,
   StarIcon,
 } from "../assets/Icons/HomeIcons";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 export default function Card({ product }) {
   const dispatch = useDispatch();
@@ -55,13 +56,13 @@ export default function Card({ product }) {
         className="absolute top-2 right-2 w-4 h-4 sm:top-3 sm:right-3 sm:w-5 sm:h-5 text-[#756d5d] hover:text-[#e30000] cursor-pointer transition-all duration-200 ease-in-out transform hover:scale-107 z-10"
       >
         {isProductFavorite(product.id) ? (
-          <span className="text-[#e30000]">
+          <AnimationOnScroll animateIn="animate__fadeIn"className="text-[#e30000]">
             <HeartIconFilled />
-          </span>
+          </AnimationOnScroll>
         ) : (
-          <span>
+          <AnimationOnScroll animateIn="animate__fadeIn">
             <HeartIcon />
-          </span>
+          </AnimationOnScroll>
         )}
       </button>
 
@@ -106,7 +107,7 @@ export default function Card({ product }) {
       </div>
 
       {cartItem ? (
-        <div className="mt-2 sm:mt-3 flex items-center justify-between rounded-sm">
+        <div className="mt-2 sm:mt-3 flex animate-in fade-in items-center justify-between rounded-sm">
           <button
             onClick={() => handleDecrement(product)}
             className="bg-black text-white px-2 sm:px-3 md:px-4 font-bold py-0.5 sm:py-1 rounded-md hover:bg-[#333333] cursor-pointer text-sm"
@@ -122,14 +123,17 @@ export default function Card({ product }) {
           </button>
         </div>
       ) : (
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center animate-in fade-in">
+                     
+
           <button
             onClick={() => handleAddToCart(product)}
             className="mt-2 sm:mt-3 bg-black text-white py-1 px-3 sm:px-4 rounded-sm hover:bg-[#333333] cursor-pointer transition-all duration-200 text-xs sm:text-sm md:text-base transform hover:scale-101 sm:w-[80%]"
           >
             Add to Cart
           </button>
-        </div>
+          </div>
+        
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 export default function Testimonials() {
   const testimonials = [
@@ -28,7 +29,8 @@ export default function Testimonials() {
 
       <div className="grid text-center gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-2 md:px-4">
         {testimonials.map((t, i) => (
-          <div
+          <AnimationOnScroll
+          animateIn="animate__fadeIn"
             key={i}
             className="rounded-lg border border-[#dedbd2] p-4 md:p-6 shadow-sm bg-white hover:shadow-md transition"
           >
@@ -47,7 +49,7 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimationOnScroll>
         ))}
       </div>
     </section>
