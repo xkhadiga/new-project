@@ -21,8 +21,8 @@ function ImageSlider() {
   }, [images.length]); 
 
   return (
-    <div className="relative flex sm:m-6  h-[55vh] sm:h-[65vh] rounded-lg overflow-hidden cursor-pointer">
-      <a href="https://x.com/itskhadija_xo" target="_blank" >
+    <div className="relative flex sm:m-6 h-[55vh] sm:h-[65vh] rounded-lg overflow-hidden">
+      <a href="https://www.linkedin.com/in/itskhadijaa/" target="_blank" className="absolute inset-0 w-full h-full cursor-pointer z-10">
         <img
           src={images[currentIndex]}
           effect="blur"
@@ -30,12 +30,12 @@ function ImageSlider() {
           alt="Shopping Slide"
           onLoad={() => setLoading(false)}
         />
+        <div className='absolute inset-0 flex justify-center items-center'>
+          <h1 className='text-4xl sm:text-6xl text-center font-bold text-white'>
+            Shop Smarter, Live Better!
+          </h1>
+        </div>
       </a>
-      <div className='absolute inset-0 flex justify-center items-center'>
-        <h1 className=' text-4xl sm:text-6xl text-center font-bold text-white'>
-          Shop Smarter, Live Better!
-        </h1>
-      </div>
     </div>
   );
 }
