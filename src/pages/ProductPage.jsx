@@ -45,34 +45,34 @@ function ProductPage() {
   }
 
   return (
-    <div className="container mx-auto p-4 md:p-8">
+    <div className="container mx-auto p-2 md:p-4 lg:p-8">
       <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Product Image Section */}
-        <div className="md:w-1/2 p-4 flex items-center justify-center bg-gray-100">
+        <div className="md:w-1/2 p-3 md:p-4 flex items-center justify-center bg-gray-100">
           <img
             src={product.thumbnail}
             alt={product.title}
-            className="max-w-full max-h-96 object-contain rounded-lg"
+            className="max-w-full max-h-64 md:max-h-96 object-contain rounded-lg"
           />
         </div>
 
         {/* Product Details Section */}
-        <div className="md:w-1/2 p-6 flex flex-col justify-between">
+        <div className="md:w-1/2 p-4 md:p-6 flex flex-col justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">{product.title}</h1>
-            <p className="text-gray-600 text-lg mb-4">{product.description}</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1 md:mb-2">{product.title}</h1>
+            <p className="text-gray-600 text-sm md:text-lg mb-3 md:mb-4">{product.description}</p>
 
-            <div className="flex items-center mb-4">
-              <p className="text-2xl font-semibold text-gray-900 mr-4">EGP {product.price}</p>
+            <div className="flex items-center mb-3 md:mb-4">
+              <p className="text-xl md:text-2xl font-semibold text-gray-900 mr-3 md:mr-4">EGP {product.price}</p>
               {product.discountPercentage && (
-                <s className="text-gray-500 text-lg">
+                <s className="text-gray-500 text-sm md:text-lg">
                   {`EGP ${Math.round(product.price / (1 - product.discountPercentage / 100))}`}
                 </s>
               )}
             </div>
 
-            <div className="flex items-center text-sm text-gray-600 mb-4">
-              <div className="flex mr-2">
+            <div className="flex items-center text-xs md:text-sm text-gray-600 mb-3 md:mb-4">
+              <div className="flex mr-1.5 md:mr-2">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <StarIcon key={i} filled={i < Math.round(product.rating)} />
                 ))}
@@ -82,19 +82,19 @@ function ProductPage() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-4 md:mt-6">
             {cartItem ? (
-              <div className="flex items-center justify-between w-full sm:w-1/2 bg-gray-100 rounded-md p-2">
+              <div className="flex items-center justify-between w-full sm:w-1/2 bg-gray-100 rounded-md p-1.5 md:p-2">
                 <button
                   onClick={() => handleDecrement(product)}
-                  className="bg-black text-white px-4 py-2 rounded-md hover:bg-[#333333] transition-colors duration-200"
+                  className="bg-black text-white px-3 md:px-4 py-1.5 md:py-2 rounded-md hover:bg-[#333333] transition-colors duration-200 text-sm"
                 >
                   -
                 </button>
-                <span className="font-semibold text-lg">{cartItem.quantity}</span>
+                <span className="font-semibold text-base md:text-lg">{cartItem.quantity}</span>
                 <button
                   onClick={() => handleIncrement(product)}
-                  className="bg-black text-white px-4 py-2 rounded-md hover:bg-[#333333] transition-colors duration-200"
+                  className="bg-black text-white px-3 md:px-4 py-1.5 md:py-2 rounded-md hover:bg-[#333333] transition-colors duration-200 text-sm"
                 >
                   +
                 </button>
@@ -102,7 +102,7 @@ function ProductPage() {
             ) : (
               <button
                 onClick={() => handleAddToCart(product)}
-                className="w-full sm:w-1/2 bg-black text-white py-3 rounded-md hover:bg-[#333333] transition-colors duration-200 text-lg font-medium"
+                className="w-full sm:w-1/2 bg-black text-white py-2.5 md:py-3 rounded-md hover:bg-[#333333] transition-colors duration-200 text-base md:text-lg font-medium"
               >
                 Add to Cart
               </button>
@@ -110,16 +110,16 @@ function ProductPage() {
 
             <button
               onClick={() => handleToggleFavorite(product)}
-              className={`w-full sm:w-1/2 py-3 rounded-md border-2 ${
+              className={`w-full sm:w-1/2 py-2.5 md:py-3 rounded-md border-2 text-sm md:text-base ${
                 isProductFavorite(product.id)
                   ? 'border-[#e30000] text-[#e30000]'
                   : 'border-gray-300 text-gray-600 hover:border-gray-400'
               } transition-colors duration-200 flex items-center justify-center`}
             >
               {isProductFavorite(product.id) ? (
-                <HeartIconFilled className="w-6 h-6 mr-2" />
+                <HeartIconFilled className="w-5 h-5 mr-1.5 md:w-6 md:h-6 md:mr-2" />
               ) : (
-                <HeartIcon className="w-6 h-6 mr-2" />
+                <HeartIcon className="w-5 h-5 mr-1.5 md:w-6 md:h-6 md:mr-2" />
               )}
               {isProductFavorite(product.id) ? 'Remove from Favorites' : 'Add to Favorites'}
             </button>
@@ -129,11 +129,11 @@ function ProductPage() {
 
       {/* Tags Section */}
       {product.tags && product.tags.length > 0 && (
-        <div className="bg-white rounded-lg border border-[#dedbd2] p-6 mt-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Tags</h2>
-          <div className="flex flex-wrap gap-2">
+        <div className="bg-white rounded-lg border border-[#dedbd2] p-4 md:p-6 mt-6 md:mt-8">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Tags</h2>
+          <div className="flex flex-wrap gap-1.5 md:gap-2">
             {product.tags.map((tag, index) => (
-              <span key={index} className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+              <span key={index} className="bg-gray-200 text-gray-700 px-2.5 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-sm">
                 {tag}
               </span>
             ))}
@@ -143,15 +143,15 @@ function ProductPage() {
 
       {/* Shipping Information Section */}
       {product.shippingInformation && (
-        <div className="bg-white rounded-lg border border-[#dedbd2] p-6 mt-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Shipping Information</h2>
-          <p className="text-gray-700 mb-2">
+        <div className="bg-white rounded-lg border border-[#dedbd2] p-4 md:p-6 mt-6 md:mt-8">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Shipping Information</h2>
+          <p className="text-gray-700 mb-1.5 md:mb-2 text-sm md:text-base">
             <span className="font-semibold">Weight:</span> {product.weight}
           </p>
-          <p className="text-gray-700 mb-2">
+          <p className="text-gray-700 mb-1.5 md:mb-2 text-sm md:text-base">
             <span className="font-semibold">Stock:</span> {product.stock}
           </p>
-          <p className="text-gray-700">
+          <p className="text-gray-700 text-sm md:text-base">
             <span className="font-semibold">Estimated Delivery:</span> {product.shippingInformation}
           </p>
         </div>
@@ -159,20 +159,20 @@ function ProductPage() {
 
       {/* Product Reviews/Comments Section */}
       {product.reviews && product.reviews.length > 0 && (
-        <div className="bg-white rounded-lg border border-[#dedbd2] p-6 mt-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Customer Reviews</h2>
+        <div className="bg-white rounded-lg border border-[#dedbd2] p-4 md:p-6 mt-6 md:mt-8">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Customer Reviews</h2>
           {product.reviews.map((review, index) => (
-            <div key={index} className="border-b border-gray-200 pb-4 mb-4 last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex items-center mb-2 gap-4">
-                <span className="font-semibold text-gray-800">{review.reviewerName}</span>
-                <div className="flex mr-2">
+            <div key={index} className="border-b border-gray-200 pb-3 md:pb-4 mb-3 md:mb-4 last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex items-center mb-1.5 md:mb-2 gap-3 md:gap-4">
+                <span className="font-semibold text-gray-800 text-sm md:text-base">{review.reviewerName}</span>
+                <div className="flex mr-1.5 md:mr-2">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <StarIcon key={i} filled={i < Math.round(review.rating)} />
                   ))}
                 </div>
                 
               </div>
-              <p className="text-gray-700">{review.comment}</p>
+              <p className="text-gray-700 text-sm md:text-base">{review.comment}</p>
             </div>
           ))}
         </div>

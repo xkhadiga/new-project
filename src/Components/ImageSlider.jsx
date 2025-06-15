@@ -21,7 +21,7 @@ function ImageSlider() {
   }, [images.length]); 
 
   return (
-    <div className="relative flex m-6  h-[65vh] rounded-lg overflow-hidden cursor-pointer">
+    <div className="relative flex sm:m-6  h-[55vh] sm:h-[65vh] rounded-lg overflow-hidden cursor-pointer">
       <a href="https://x.com/itskhadija_xo" target="_blank" >
         <img
           src={images[currentIndex]}
@@ -32,7 +32,7 @@ function ImageSlider() {
         />
       </a>
       <div className='absolute inset-0 flex justify-center items-center'>
-        <h1 className=' text-5xl sm:text-6xl font-bold text-white'>
+        <h1 className=' text-4xl sm:text-6xl text-center font-bold text-white'>
           Shop Smarter, Live Better!
         </h1>
       </div>

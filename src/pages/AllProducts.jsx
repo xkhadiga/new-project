@@ -25,17 +25,17 @@ export default function AllProducts() {
   }, []);
 
   if (loading) {
-    return <div className="text-center text-xl mt-8">Loading products...</div>;
+    return <div className="text-center text-base md:text-xl mt-4 md:mt-8">Loading products...</div>;
   }
 
   if (error) {
-    return <div className="text-center text-xl mt-8 text-red-500">Error: {error}</div>;
+    return <div className="text-center text-base md:text-xl mt-4 md:mt-8 text-red-500">Error: {error}</div>;
   }
 
   return (
-    <div>
-      <h2 className="text-xl  m-4 text-[#756d5d] text-center">All Products</h2>
-      <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-[#735751]">
+    <div className="p-2 md:p-0">
+      <h2 className="text-lg md:text-xl m-2 md:m-4 text-[#756d5d] text-center">All Products</h2>
+      <section className="p-4 md:p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 text-[#735751]">
         {products.map((product) => (
           <Card key={product.id} product={product} />
         ))}

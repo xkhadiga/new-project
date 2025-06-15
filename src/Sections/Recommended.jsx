@@ -29,31 +29,25 @@ export default function Recommended() {
     },
   ];
   return (
-    <section className="px-6">
-            <h2 className="text-xl px-6 mb-4 text-[#756d5d]"> You Might Also Like</h2>
+    <section className="px-2 md:px-6">
+      <h2 className="text-base md:text-xl text-center md:text-start px-2 md:px-6 mb-3 md:mb-4 text-[#756d5d]"> You Might Also Like</h2>
 
-      <div className="grid gap-6 grid-cols-2 md:grid-cols-4 px-4">
+      <div className="grid gap-3 md:gap-6 grid-cols-2 md:grid-cols-4 px-2 md:px-4">
         {recommended.map((item) => (
           <div
             key={item.id}
-            className="border border-[#dedbd2] relative rounded-2xl p-4 shadow hover:shadow-lg shadow-[#dedbd2] transition cursor-pointer"
+            className="border border-[#dedbd2] relative rounded-2xl p-2 md:p-4 shadow hover:shadow-lg shadow-[#dedbd2] transition cursor-pointer"
           >
             <img
               src={item.img}
               alt={item.name}
-              className="w-full h-48 object-cover"
+              className="w-full rounded-xl h-32 md:h-48 object-cover"
             />
-            <div className="flex justify-between items-center">
-              <div className="p-4">
-                <h3 className="text-sm font-semibold text-gray-800">
-                  {item.name}
-                </h3>
-                <p className="text-sm text-gray-500">{item.price}</p>
-              </div>
-            
-              <button className=" bg-black text-white py-1 px-4 rounded-sm hover:bg-[#333333] cursor-pointer transition">
-                <CartPlus />
-              </button>
+            <div className="py-1.5 md:p-4">
+              <h3 className="text-xs md:text-sm text-center font-medium md:font-semibold text-gray-800">
+                {item.name}
+              </h3>
+              <p className="text-xs md:text-sm text-gray-500 text-center">{item.price}</p>
             </div>
           </div>
         ))}

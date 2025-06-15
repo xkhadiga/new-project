@@ -11,8 +11,8 @@ export default function AdBanner ({
   return (
     <div className={`w-full rounded-2xl shadow-md overflow-hidden flex flex-col-reverse md:flex-row items-center p-3 md:p-5 ${bgColor}`}>
       <div className="md:w-1/2 text-center space-y-4 ">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">{title}</h2>
-        <p className="text-lg text-gray-600 ">{subtitle}</p>
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-800">{title}</h2>
+        <p className="sm:text-lg text-gray-600 ">{subtitle}</p>
         <a 
           href={ctaLink} 
           className="inline-block bg-black text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition "

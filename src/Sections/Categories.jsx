@@ -65,7 +65,6 @@ const Categories = () => {
     const fetchCategories = async () => {
       const response = await fetch("https://dummyjson.com/products/categories");
       const data = await response.json();
-      console.log("Fetched Categories:", data); 
       setCategories(
         data.map((category) => ({
           name: category.name,
@@ -89,39 +88,37 @@ const Categories = () => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className=" px-6 flex items-center justify-between text-[#756d5d]">
-        <h2 className="text-xl mb-4 ">
+    <div className="flex flex-col p-2 md:p-0">
+      <div className="px-2 md:px-6 flex items-center justify-between text-[#756d5d] mb-4">
+        <h2 className="text-base md:text-xl">
           Browse By Categories
         </h2>
-              <div className="flex  mt-4">
-        <button onClick={handlePrev} className="text-[#756d5d] hover:text-[#595246] cursor-pointer ">
-          <LeftIcon />
-        </button>
-        <button className="text-[#756d5d] hover:text-[#595246] cursor-pointer "
-        onClick={handleNext} >
-          <RightIcon />
-        </button>
-
+        <div className="flex gap-2 md:gap-4">
+          <button onClick={handlePrev} className="text-[#756d5d] hover:text-[#595246] cursor-pointer w-6 h-6 md:w-8 md:h-8">
+            <LeftIcon />
+          </button>
+          <button className="text-[#756d5d] hover:text-[#595246] cursor-pointer w-6 h-6 md:w-8 md:h-8"
+            onClick={handleNext} >
+            <RightIcon />
+          </button>
+        </div>
       </div>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4 items-center justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 p-2 md:p-4 items-center justify-center">
         {categories
           .slice(startIndex, startIndex + itemsPerPage)
           .map((category, index) => (
             <div
               key={index}
-              className="bg-white hover:bg-[#dedbd2] aspect-square  transition-all duration-300 cursor-pointer rounded-sm p-2 flex flex-col items-center justify-center shadow-sm border-[#dedbd2] border-1 "
+              className="bg-white hover:bg-[#dedbd2] aspect-square transition-all duration-300 cursor-pointer rounded-sm p-2 flex flex-col items-center justify-center shadow-sm border-[#dedbd2] border-1"
               onClick={() => navigate(`/bycategory/${category.name}`)}
             >
-              <div className="w-[4rem] h-[4rem] mb-2 text-[#756d5d]">
+              <div className="w-12 h-12 md:w-[4rem] md:h-[4rem] mb-1 md:mb-2 text-[#756d5d]">
                 {category.icon}
               </div>
-              <h3 className="text-sm">{category.name}</h3>
+              <h3 className="text-xs md:text-sm text-center">{category.name}</h3>
             </div>
           ))}
       </div>
-
     </div>
   );
 };

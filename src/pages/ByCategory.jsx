@@ -40,7 +40,7 @@ function ByCategory() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-xl text-gray-600">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600">
           Loading products for {category}...
         </p>
       </div>
@@ -50,24 +50,24 @@ function ByCategory() {
   if (error) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-xl text-red-500">Error: {error}</p>
+        <p className="text-base sm:text-lg md:text-xl text-red-500">Error: {error}</p>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-center mb-8 capitalize">
+    <div className="container mx-auto px-2 py-3 sm:px-3 sm:py-4 md:px-4 md:py-8">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold sm:font-bold text-center mb-4 sm:mb-5 md:mb-8 capitalize text-[#735751]">
         {category} Products
       </h2>
       {products.length > 0 ? (
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6 text-[#735751]">
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 text-[#735751]">
           {products.map((product) => (
             <Card key={product.id} product={product} />
           ))}
         </section>
       ) : (
-        <div className="text-center text-xl text-gray-600 py-10">
+        <div className="text-center text-sm sm:text-base md:text-xl text-gray-600 py-4 sm:py-6 md:py-10">
           No products found for {category}.
         </div>
       )}

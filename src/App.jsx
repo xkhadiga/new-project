@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './Sections/Header';
+import ScrollToTop from './Components/ScrollToTop';
 import Account from './pages/Account';
 import ByCategory from './pages/ByCategory';
 import Cart from './pages/Cart';
@@ -12,6 +13,7 @@ import ProductPage from './pages/ProductPage';
 import Register from './pages/Register';
 import Search from './pages/Search';
 import AllProducts from './pages/AllProducts';
+import UpButton from './Components/UpButton';
 
 import './App.css';
 
@@ -19,6 +21,7 @@ function App() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/account" element={<Account />} />
@@ -33,6 +36,7 @@ function App() {
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <UpButton />
     </>
   );
 }

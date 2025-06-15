@@ -15,19 +15,19 @@ export default function ProductsGrid() {
   }, []);
 
   return (
-    <div>
-      <h2 className="text-xl px-6 mb-4 text-[#756d5d]">Explore Our Products</h2>
+    <div className="p-2 md:p-0">
+      <h2 className="text-base md:text-xl px-2 md:px-6 mb-3 md:mb-4 text-[#756d5d]">Explore Our Products</h2>
 
-      <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-[#735751]">
+      <section className="p-2 md:p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6 text-[#735751]">
         {products.map((product) => (
           <Card key={product.id} product={product} />
         ))}
       </section>
 
-      <div className="text-center mt-8">
+      <div className="text-center mt-6 md:mt-8">
         <Link
           to="/all-products"
-          className="bg-black hover:bg-[#333333] text-white px-6 py-3 rounded-md  transition duration-300"
+          className="bg-black hover:bg-[#333333] text-white px-5 py-2.5 md:px-6 md:py-3 rounded-md transition duration-300 text-sm md:text-base"
         >
           Browse All Products
         </Link>

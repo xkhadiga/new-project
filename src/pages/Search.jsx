@@ -37,20 +37,20 @@ function Search() {
   }, [searchQuery]);
 
   if (loading) {
-    return <div className="text-center mt-8">Loading products...</div>;
+    return <div className="text-center mt-4 md:mt-8 text-base md:text-xl">Loading products...</div>;
   }
 
   if (error) {
-    return <div className="text-center mt-8 text-red-500">Error: {error}</div>;
+    return <div className="text-center mt-4 md:mt-8 text-red-500 text-base md:text-xl">Error: {error}</div>;
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Search Results for "{searchQuery}"</h1>
+    <div className="container mx-auto p-2 md:p-4">
+      <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">Search Results for "{searchQuery}"</h1>
       {products.length === 0 ? (
-        <p className="text-center text-gray-600">No products found for "{searchQuery}".</p>
+        <p className="text-center text-gray-600 text-sm md:text-base">No products found for "{searchQuery}".</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 text-[#735751]">
           {products.map((product) => (
             <Card key={product.id} product={product} />
           ))}
